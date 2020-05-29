@@ -11,15 +11,17 @@ let uncheckedCountSpan = document.getElementById('unchecked-count');
 let checkedCountSpan = 0;
 
 function addNumber() {
-  for (let number = 0; number<list.length; number++) {
+
+  for (var number = 0; number<list.length; number++) {
     if (list[number].checked) {
       checkedCountSpan++;
-      itemCountSpan.value++;
+      itemCountSpan.innerHTML = parseInt(itemCountSpan,10) + 1;
     } else {
-      uncheckedCountSpan.value++;
-      itemCountSpan.value++;
+      uncheckedCountSpan.innerHTML = parseInt(uncheckedCountSpan,10) + 1;
+      itemCountSpan.innerHTML = parseInt(itemCountSpan,10) + 1;
     }
   }
+
   console.log(checkedCountSpan, itemCountSpan, uncheckedCountSpan)
 }
 
@@ -27,12 +29,12 @@ function newTodo() {
 
   let check_value = prompt("What is the name of the activity you need to do?");
   checkbox=document.createElement("input");
-  checkbox.value=(check_value + '</br>');
+  checkbox.value=(check_value);
   checkbox.type="checkbox";
-  p =document.createElement("h3");
-  p.innerHTML = check_value + " ";
+  h =document.createElement("h3");
+  h.innerHTML = check_value + " ";
   br =document.createElement("br");
-  list.appendChild(p);
+  list.appendChild(h);
   list.appendChild(checkbox);
   list.appendChild(br);
 }
